@@ -50,3 +50,17 @@
 //         document.getElementById('foundProperties').innerHTML = filterResult.length > 0 ? result.join("") : `<div>No Cars Found</div>`;
 //     })
 // }
+
+
+const search = () =>{
+    const searchWord = document.getElementById('searching').value
+    axios.post('http://127.0.0.1:4444/search', {
+        keyWord: searchWord
+    })
+}
+
+// const searchA=()=>{
+//     axios.get('http://127.0.0.1:4444/search', {
+//         keyWord: searchWord
+//     })
+// }

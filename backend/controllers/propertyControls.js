@@ -1,4 +1,6 @@
+const { Sequelize } = require("sequelize")
 const {properties} = require("../models/properties.js")
+const Op = Sequelize.Op
 
 
 const listProperty = async (req,res) =>{
@@ -28,4 +30,30 @@ const fetchProperty = async (req,res) =>{
         res.send(result)
     })
 }
-module.exports = {listProperty, fetchProperty}
+let searchObject = {};
+const searching = async(req,res) =>{
+    const key = req.body.keyWord
+    if(typeof key === 'string' && key !== ''){
+        properties.findAll({
+            where:{
+                [Op.or]: [{location:{[Op.like]:'%'+key+ '%'}},{address:{[Op.like]:'%'+key+ '%'}},{propertType:{[Op.like]:'%'+key+ '%'}}]
+                
+            }
+        }).then((result)=>{ 
+            searchObject = result
+            console.log(searchObject)
+            // res.send(result)
+        })
+    }else {
+        console.log('empty key')
+        for (let key in searchObject){
+            delete searchObject[key]
+        }
+    }
+}
+
+const foundProperties = async (req,res) =>{
+    res.send(searchObject)
+}
+
+module.exports = {listProperty, fetchProperty,searching,foundProperties}
