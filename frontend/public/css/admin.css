@@ -9,8 +9,3 @@
   --grey2: #e9d7d3;
 }
 
-.headerbutton {
-    background-color: var(--green);
-    color: white;
-    border-radius: 0.5rem;
-}

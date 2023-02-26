@@ -304,6 +304,11 @@ Navigation
   margin-bottom: 1rem;
 }
 
+.headerbutton {
+  background-color: var(--green);
+  color: white;
+  border-radius: 0.5rem;
+}
 
 
 /* Footer */
