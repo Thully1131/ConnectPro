@@ -14,7 +14,7 @@ const listProperty = async (req,res) =>{
         pictureThree: req.body.pictureThree,
         description: req.body.description
     }
-
+    
     properties.create(listed).then(() =>{
         console.log("data created")
         res.status(200).json([{ message: "data created" }])
@@ -42,7 +42,7 @@ const searching = async(req,res) =>{
         }).then((result)=>{ 
             searchObject = result
             console.log(searchObject)
-            // res.send(result)
+            res.status(200).json([{ message: "searching" }])
         })
     }else {
         console.log('empty key')

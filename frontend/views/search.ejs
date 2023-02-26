@@ -11,8 +11,7 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <!-- Swiper js -->
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  
   <!-- bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -28,80 +27,29 @@
 
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+ 
 </head>
 
 <body>
-  <!-- Header -->
-  <header class="header" id="header">
-    <div class="navigation">
-      <div class="nav-center container d-flex">
-        <span class="logo">
-          <h1>ConnectPro</h1>
-        </span>
-
-        <ul class="nav-list d-flex">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a href="#terms" class="nav-link">Terms</a>
-          </li>
-          <li class="nav-item">
-            <a href="#about" class="nav-link">About</a>
-          </li>
-          <li class="nav-item">
-            <a href="#contact" class="nav-link">Contact</a>
-          </li>
-        </ul>
-
-        <div class="hamburger">
-          <i class="bx bx-menu-alt-left"></i>
+    <nav class="navbar navbar-inverse navbar-dark bg-dark sticky-top navbar-expand-lg" style="margin-bottom: 100px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <span class="navbar-brand  h1" style="font-size: 40px; ">ConnectPro</span>
+            </div>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
         </div>
-      </div>
-    </div>
-
-    <div class="hero">
-      <div class="swiper-container heroslider">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="/images/image1.jpeg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/image2.jpeg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/image3.jpeg" alt="" />
-          </div>
-        </div>
-        <div class="swiper-button-next">
-          <i class="bx bx-chevron-right swiper-icon"></i>
-        </div>
-        <div class="swiper-button-prev">
-          <i class="bx bx-chevron-left swiper-icon"></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="content">
-      <h1>Find your dream home</h1>
-      <form onsubmit="event.preventDefault()">
-      <div class="search" >
-        <input type="text" id="searching" placeholder="Type Address, City, State" required/>
-        <button onclick="search()">Search</button>
-      </div>
-    </form>
-    </div>
-  </header>
+    </nav>
 
   <section class="section rent ">
     <div class="title">
-      <h1>Properties For Rent</h1>
-      <p>
-        Search over 2000 properties to rent from the top agents in the country
-      </p>
+      <h1>Properties Found</h1>
+      <div class="row" id="foundProperties"></div>
     </div>
 
-    <div class="row" id="listedProperties"></div>
+    
     
     <!-- Footer -->
     <footer class="footer">
@@ -131,7 +79,7 @@
     </footer>
 </body>
 <script>
-  axios.get('http://localhost:4444/fetchProperty').then(rs => {
+  axios.get('http://localhost:4444/found').then(rs => {
       var result =  rs.data.map((dt, index) => {
             return ` <div class="card m-3" style="width: 30rem; font-size:20px">
             <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -166,12 +114,11 @@
             </div>
         </div>`
         })
-        document.getElementById('listedProperties').innerHTML = result.join("");
+        document.getElementById('foundProperties').innerHTML = result.join("");
     })
     
 </script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="/javascript/carousel.js"></script>
+
 <script src="/javascript/user.js"></script>
 
 <!-- <script src="./js/index.js"></script> -->

@@ -56,11 +56,10 @@ const search = () =>{
     const searchWord = document.getElementById('searching').value
     axios.post('http://127.0.0.1:4444/search', {
         keyWord: searchWord
+    }).then((res)=>{
+        if(res.data[0].message ==  "searching" ){
+            window.location ='/searchedProperty'
+        }
     })
 }
 
-// const searchA=()=>{
-//     axios.get('http://127.0.0.1:4444/search', {
-//         keyWord: searchWord
-//     })
-// }
