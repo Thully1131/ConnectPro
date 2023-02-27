@@ -78,7 +78,7 @@
   axios.get('http://localhost:4444/found').then(rs => {
       var result =  rs.data.map((dt, index) => {
             return ` <div class="card m-3" style="width: 30rem; font-size:20px">
-            <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div id="carouselFade`+`${index}" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner mt-3">
                   <div class="carousel-item active">
                     <img src="${dt.pictureOne}" class="d-block w-100" alt="">
@@ -90,11 +90,11 @@
                     <img src="${dt.pictureThree}" class="d-block w-100" alt="">
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFade" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFade`+`${index}" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselFade" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselFade`+`${index}" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
