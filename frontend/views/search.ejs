@@ -27,6 +27,8 @@
 
   <!-- Axios -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- sweet alert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  
 </head>
 
@@ -36,7 +38,8 @@
             <div class="navbar-header">
                 <span class="navbar-brand  h1" style="font-size: 40px; ">ConnectPro</span>
             </div>
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 ">
+            <div class="navbar-collapse">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 ">
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
@@ -44,6 +47,7 @@
                   <a class="nav-link active" aria-current="page" href="#donation">Donate</a>
                 </li>
               </ul>
+            </div>
         </div>
     </nav>
 
@@ -100,15 +104,44 @@
                 </button>
               </div>
             <div class="card-body mb-3">
-                <h5 class="card-title" style="font-size:30px">$ ${dt.rentAmount}</h5>
+                <h5 class="card-title" style="font-size:30px">₦ ${dt.rentAmount}</h5>
                 <h5 class="card-title" style=" font-size:20px">${dt.location}</h5>
                 <h6 class="mb-3" style=" font-size:20px">${dt.propertType}</h6>
                 <p style=" font-size:15px">${dt.address}</p>
                 <p class="card-text" style=" font-size:15px">${dt.description}.</p>
                 <p class="card-text" style=" font-size:15px;font-style: italic;">Posted on: ${dt.createdAt}</p>
-                <button class="btn btn-primary " style=" font-size:15px">Requirment Form</button>
+                <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalEligible`+`${index}" style=" font-size:15px">Check Eligiblity</button>
             </div>
-        </div>`
+        </div>
+        <div class="modal" id="modalEligible`+`${index}" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Check Eligibility</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="forms-sample" id="formEligible" onsubmit="event.preventDefault()">
+            <div class="form-group">
+              <label for="propertyId" style="font-size: large;">Property Id</label>
+              <input type="text" class="form-control" id="propertyId"style="font-size: 20px;" value="${dt.property_ID}" readonly >
+            </div>
+            <div class="form-group">
+              <label for="mySalary" style="font-size: large;"> Net Salary per month(₦)</label>
+              <input type="number" class="form-control" id="mySalary" placeholder="1000" min="1"style="font-size: 20px;" required>
+            </div>
+            <div class="form-group">
+              <label for="myCreditscore" style="font-size: large;">Credit Score</label>
+              <input type="number" class="form-control" id="myCreditscore" placeholder="350" min="300" max="850" style="font-size: 20px;" required>
+            </div><br>
+            <button type="submit" class="btn btn-primary me-2" style="font-size: 15px;" onclick="checkElible()">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer"> </div>
+      </div>
+    </div>
+  </div> 
+        `
         })
         document.getElementById('foundProperties').innerHTML = result.join("");
     })
