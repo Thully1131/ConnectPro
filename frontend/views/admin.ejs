@@ -34,7 +34,7 @@
    
      <!-- Nav Bar -->
     
-     <nav class="navbar navbar-inverse navbar-dark bg-dark sticky-top navbar-expand-lg" style="margin-bottom: 100px;">
+     <nav class="navbar navbar-inverse navbar-dark bg-dark sticky-top navbar-expand-lg" >
         <div class="container-fluid">
             <div class="navbar-header">
                 <span class="navbar-brand  h1" style="font-size: 40px; ">ConnectPro</span>
@@ -51,81 +51,15 @@
             </div>
         </div>
     </nav>
+    <div>
+        <img src="/images/image1.jpeg">
+    </div>
+    
+ <!-- partial -->
+ <%- include('partials/listingModal') %> 
 
-    <!-- Modal -->
-    <div class="modal fade" id="addlisting" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Add Property</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="/images/car-placeholder.png" id="photo1" class="img-thumbnail rounded">
-                    </div>
-                    <div class="col-4">
-                        <img src="/images/car-placeholder.png" id="photo2" class="img-thumbnail rounded">
-                    </div>
-                    <div class="col-4">
-                        <img src="/images/car-placeholder.png" id="photo3" class="img-thumbnail rounded">
-                    </div>
-                </div>
-             
-                    <div class="row">
-                        <!-- first column -->
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="rent" class="form-label" style="font-size: large;">Rent Amount</label>
-                                <input type="text" class="form-control" id="rent" placeholder="$800" style="font-size: larger;" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="type" class="form-label" style="font-size: large;">Type of Property</label>
-                                <input type="text" class="form-control" id="type" placeholder="3 bedroom Apartment"style="font-size: larger;"  required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="location" class="form-label" style="font-size: large;">location</label>
-                                <input type="text" class="form-control" id="location" placeholder="City/State"style="font-size: larger;"  required>
-                            </div>
-                            <div >
-                                <label for="address" style="font-size: large;">Address</label>
-                                <textarea class="form-control"  id="address" placeholder="7 Travertine Crescent, Briardene" style="height: 100px;font-size: larger;" required></textarea>
-                              </div>
-                        </div>
-                        <!-- second column -->
-                        <div class="col-6">
-                            <div class="mb-3">
-                                <label for="image1" class="form-label" style="font-size: large;">Property Photo-1 Link</label>
-                                <input type="url" class="form-control" id="image1" oninput="photoUpload()" placeholder="link" style="font-size: larger;" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="image2" class="form-label" style="font-size: large;">Property Photo-2 Link</label>
-                                <input type="url" class="form-control" id="image2" oninput="photoUpload()" placeholder="link" style="font-size: larger;" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="image3" class="form-label" style="font-size: large;">Property Photo-3 Link</label>
-                                <input type="url" class="form-control" id="image3" oninput="photoUpload()" placeholder="link" style="font-size: larger;" required>
-                            </div>
-                            <div>
-                                <label for="description" style="font-size: large;">Description</label>
-                                <textarea class="form-control"  id="description" placeholder="Leave a Description of property here" style="height: 100px;font-size: larger;" required></textarea>
-                              </div>
-                        </div>
-                    </div>
-                   
-            </div>
-            <div class="modal-footer">
-                <!-- <button type="button"  class="btn btn-danger" style="font-size: 15px;">Clear data</button> -->
-                <button type="button" class="btn btn-primary" onclick="list()" style="font-size: 15px;">Add listing</button>
-            </div>
-        </div>
-    </div>
-    </div>
     <!-- Content -->
-
-<div class="row" id="allProperties"></div>
+<div class="row" id="allProperties" style="margin-top: 200px;"></div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -177,7 +111,6 @@
                 <h6 class="mb-3" style=" font-size:20px">${dt.propertType}</h6>
                 <p style=" font-size:15px">${dt.address}</p>
                 <p class="card-text" style=" font-size:15px">${dt.description}.</p>
-                <button class="btn btn-primary " style=" font-size:15px">Requirment Form</button>
             </div>
         </div>`
         })

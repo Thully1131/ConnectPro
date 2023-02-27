@@ -12,7 +12,9 @@ const listProperty = async (req,res) =>{
         pictureOne: req.body.pictureOne,
         pictureTwo: req.body.pictureTwo,
         pictureThree: req.body.pictureThree,
-        description: req.body.description
+        description: req.body.description,
+        minsalary: req.body.minSalary,
+        creditscore: req.body.creditscore
     }
     
     properties.create(listed).then(() =>{

@@ -101,6 +101,10 @@
       </p>
     </div>
 
+    <!-- partial -->
+ <%- include('partials/eligibleModal') %> 
+
+<!-- content -->
     <div class="row" id="listedProperties"></div>
     
     <!-- Footer -->
@@ -153,7 +157,7 @@
                 <p style=" font-size:15px">${dt.address}</p>
                 <p class="card-text" style=" font-size:15px">${dt.description}.</p>
                 <p class="card-text" style=" font-size:15px;font-style: italic;">Posted on: ${dt.createdAt}</p>
-                <button class="btn btn-primary " style=" font-size:15px">Requirment Form</button>
+                <button class="btn btn-primary " data-bs-toggle="modal" data-bs-target="#modalEligible" style=" font-size:15px">Check Eligiblity</button>
             </div>
         </div>`
         })

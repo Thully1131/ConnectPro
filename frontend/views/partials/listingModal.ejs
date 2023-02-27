@@ -1,0 +1,83 @@
+<div class="modal fade" id="addlisting" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="forms-sample">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="/images/car-placeholder.png" id="photo1" class="img-thumbnail rounded">
+                    </div>
+                    <div class="col-4">
+                        <img src="/images/car-placeholder.png" id="photo2" class="img-thumbnail rounded">
+                    </div>
+                    <div class="col-4">
+                        <img src="/images/car-placeholder.png" id="photo3" class="img-thumbnail rounded">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- first column -->
+                    <div class="col-6">
+                        <div class=" form-group mb-3">
+                            <label for="rent" class="form-label" style="font-size: large;">Rent Amount</label>
+                            <input type="text" class="form-control" id="rent" placeholder="$800" style="font-size: larger;"required>
+                        </div>
+                        <div class=" form-group mb-3">
+                            <label for="location" class="form-label" style="font-size: large;">location</label>
+                            <input type="text" class="form-control" id="location" placeholder="City/State"
+                                style="font-size: larger;" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="description" style="font-size: large;">Description</label>
+                            <textarea class="form-control" id="description" placeholder="Leave a Description of property here" style="height: 180px;font-size: larger;" required></textarea>
+                        </div>
+                      </div>
+                    <!-- second column -->
+                    <div class="col-6">
+                        <div class="form-group mb-3">
+                            <label for="image1" class="form-label" style="font-size: large;">Property Photo-1 Link</label>
+                            <input type="url" class="form-control" id="image1" oninput="photoUpload()" placeholder="link"style="font-size: larger;" required>
+                        </div>
+                        <div class=" form-group mb-3">
+                            <label for="image2" class="form-label" style="font-size: large;">Property Photo-2 Link</label>
+                            <input type="url" class="form-control" id="image2" oninput="photoUpload()" placeholder="link" style="font-size: larger;" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="image3" class="form-label" style="font-size: large;">Property Photo-3 Link</label>
+                            <input type="url" class="form-control" id="image3" oninput="photoUpload()" placeholder="link" style="font-size: larger;" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address" style="font-size: large;">Address</label>
+                            <textarea class="form-control" id="address" placeholder="7 Travertine Crescent, Briardene" style="height: 100px;font-size: larger;" required></textarea>
+                        </div>
+                      </div>
+                </div>
+                <div style="border-top: 0.5px solid gray; margin-top: 15px;">
+                    <h1>Eligiliblity Requirment</h1>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="salary" class="form-label" style="font-size: large;">Min Net Salary permonth($)</label>
+                            <input type="number" class="form-control" id="salary" placeholder="200" style="font-size: larger;" required>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="creditScore" class="form-label" style="font-size: large;">Min Credit Score</label>
+                            <input type="number" class="form-control" id="creditScore" placeholder="670" style="font-size: larger;" required>
+                        </div>
+                    </div>
+                </div><br>
+                <button type="submit" class="btn btn-primary" onclick="list()" style="font-size: 15px;">Add Property</button>
+            </form>
+
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+    </div>
+  </div>

@@ -9,6 +9,8 @@ const list = () => {
     const imageTwo = document.getElementById('image2').value
     const imageThree = document.getElementById('image3').value
     const description = document.getElementById('description').value
+    const salary = document.getElementById('salary').value
+    const creditscore = document.getElementById('creditScore').value
 
 
     axios.post('http://127.0.0.1:4444/registerProperty', {
@@ -19,7 +21,9 @@ const list = () => {
         pictureOne: imageOne,
         pictureTwo: imageTwo,
         pictureThree: imageThree,
-        description: description
+        description: description,
+        minSalary: salary,
+        creditscore: creditscore
     }).then(res => {
         if (res.body !== " ") {
             Swal.fire({

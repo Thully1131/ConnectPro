@@ -40,6 +40,14 @@ const properties = sequelize.define("properties", {
         type: Sequelize.TEXT,
         allowNull: false,
     },
+    minsalary:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+    },
+    creditscore:{
+        type: Sequelize.INTEGER,
+        allowNull: false
+    }
 })
  
 module.exports = {properties}
