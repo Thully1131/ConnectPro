@@ -18,7 +18,9 @@ app.get('/admin',(req,res)=>{
 app.get('/searchedProperty',(req,res)=>{
     res.render("search")
 })
-
+app.get('/contact',(req,res)=>{
+    res.render("contact")
+})
 app.listen(port,()=>{
     console.log('server running')
 })

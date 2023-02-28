@@ -45,10 +45,10 @@
           <li class="nav-item">
             <a href="#donate" class="nav-link">Donate</a>
           </li>
-          <!-- <li class="nav-item">
-            <a href="#terms" class="nav-link">Terms</a>
-          </li>
           <li class="nav-item">
+            <a href="/admin" class="nav-link">List Property</a>
+          </li>
+          <!-- <li class="nav-item">
             <a href="#about" class="nav-link">About</a>
           </li>
           <li class="nav-item">
@@ -98,12 +98,9 @@
   <section class="section rent ">
     <div class="title">
       <h1>Properties For Rent</h1>
-      <p>
-        Search over 2000 properties to rent from the top agents in the country
-      </p>
+      
     </div>
-
- 
+<!-- partial -->
 
 
 <!-- content -->
@@ -177,13 +174,13 @@
             </div>
             <div class="form-group">
               <label for="mySalary" style="font-size: large;">Net Salary per month(₦)</label>
-              <input type="number" class="form-control" id="mySalary" placeholder="1000" min="1"style="font-size: 20px;" required>
+              <input type="number" class="form-control" id="mySalary-${dt.property_ID}" placeholder="1000" min="1"style="font-size: 20px;" required>
             </div>
             <div class="form-group">
               <label for="myCreditscore" style="font-size: large;">Credit Score</label>
-              <input type="number" class="form-control" id="myCreditscore" placeholder="350" min="300" max="850" style="font-size: 20px;" required>
+              <input type="number" class="form-control" id="myCreditscore-${dt.property_ID}" placeholder="350" min="300" max="850" style="font-size: 20px;" required>
             </div><br>
-            <button type="submit" class="btn btn-primary me-2" style="font-size: 15px;" onclick="checkElible()">Submit</button>
+            <button type="submit" class="btn btn-primary me-2" style="font-size: 15px;" onclick="checkElible('${dt.property_ID}')">Submit</button>
           </form>
         </div>
         <div class="modal-footer"> </div>

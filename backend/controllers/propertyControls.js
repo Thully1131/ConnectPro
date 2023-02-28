@@ -60,7 +60,7 @@ const foundProperties = async (req,res) =>{
     res.send(searchObject)
 }
 // eligibility
-
+let eligibleObject ={};
 const checkElible = async(req,res) =>{
     const mysalary = req.body.mysalary
     const mycreditscore = req.body.mycreditscore
@@ -73,14 +73,18 @@ const checkElible = async(req,res) =>{
             property_ID: property_ID
         }
     }).then((rs)=>{
-        // console.log(rs.dataValues.minsalary)
         if(rs.dataValues.minsalary <= mysalary && rs.dataValues.creditscore <= mycreditscore){
             res.status(200).json([{ message: "you are eligible for this property" }])
+            eligibleObject = rs
         } else {
             res.status(200).json([{ message: "you are NOT eligible for this property" }])
         }
+
     })
 
 }
+const propertyEligible = async (req,res) =>{
+    res.send(eligibleObject)
+}
 
-module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible}
+module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible,propertyEligible}

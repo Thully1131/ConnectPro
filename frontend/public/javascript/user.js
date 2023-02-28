@@ -10,10 +10,9 @@ const search = () =>{
     })
 }
 
-const checkElible = () =>{
-   const mySalary = document.getElementById('mySalary').value 
-   const myCreditScore = document.getElementById('myCreditscore').value 
-   const propertyID = document.getElementById('propertyId').value 
+const checkElible = propertyID =>{
+    const mySalary = document.getElementById(`mySalary-${propertyID}`).value 
+   const myCreditScore = document.getElementById(`myCreditscore-${propertyID}`).value 
 
    axios.post('http://localhost:4444/eligible',{
     mysalary: mySalary,
@@ -30,16 +29,17 @@ const checkElible = () =>{
         }) 
     } else{
         Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'success',
             title: 'You are Eligible to Apply for this property',
+            text: 'Redirecting to the contact page',
             showConfirmButton: false,
-            timer: 1500
+            timer: 3300
+        }).then(()=>{
+            window.location ='/contact'
         })
     }
    })
-
-
 
 }
 
