@@ -15,6 +15,9 @@ app.get('/',(req,res)=>{
 app.get('/admin',(req,res)=>{ 
     res.render("admin");
 })
+app.get('/login',(req,res)=>{ 
+    res.render("login");
+})
 app.get('/searchedProperty',(req,res)=>{
     res.render("search")
 })

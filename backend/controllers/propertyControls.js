@@ -1,6 +1,8 @@
 const { Sequelize } = require("sequelize")
+const { Customer } = require("../models/customer.js")
 const {properties} = require("../models/properties.js")
 const Op = Sequelize.Op
+
 
 // add new property
 const listProperty = async (req,res) =>{
@@ -87,4 +89,27 @@ const propertyEligible = async (req,res) =>{
     res.send(eligibleObject)
 }
 
-module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible,propertyEligible}
+const login = async (req,res) =>{
+    const username = req.body.username
+    const password = req.body.password
+    console.log(username)
+    Customer.findOne({
+        where: {
+            username: username
+        }
+    }).then(rs=>{
+        if(rs){
+            if(password == rs.dataValues.password){
+                res.status(200).json([{ message: 'success' }])
+            } else{
+                res.status(200).json([{ message: "invalid" }]) 
+            }
+        } else{
+            res.status(200).json([{ message: "invalid" }])
+        }
+    }).catch(err => {
+        console.log(err)
+    });
+}
+
+module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible,propertyEligible,login}
