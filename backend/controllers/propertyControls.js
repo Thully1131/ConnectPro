@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize")
+const { Sequelize, where } = require("sequelize")
 const { Customer } = require("../models/customer.js")
 const {properties} = require("../models/properties.js")
 const Op = Sequelize.Op
@@ -89,10 +89,11 @@ const propertyEligible = async (req,res) =>{
     res.send(eligibleObject)
 }
 
+// Login
 const login = async (req,res) =>{
     const username = req.body.username
     const password = req.body.password
-    console.log(username)
+   
     Customer.findOne({
         where: {
             username: username
@@ -111,5 +112,30 @@ const login = async (req,res) =>{
         console.log(err)
     });
 }
+// Change password
+const update = async (req,res) =>{
+    const username = req.body.username
+    const passWord = req.body.password
+    const newPassword = req.body.newpassword
 
-module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible,propertyEligible,login}
+    Customer.findOne({
+        where: {
+            username: username
+        }
+    }).then(rs=>{
+            if(passWord == rs.dataValues.password){
+                Customer.update(
+                    {password: `${newPassword}`},
+                    {where: {password: `${passWord}`}}
+                ).catch(err => err)
+                res.status(200).json([{message: 'success'}])
+            }else{
+                res.status(200).json([{ message: "invalid" }])
+            }
+    }).catch(err => {
+        console.log(err)
+    });
+
+}
+
+module.exports = {listProperty, fetchProperty,searching,foundProperties,checkElible,propertyEligible,login,update}

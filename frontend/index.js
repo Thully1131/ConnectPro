@@ -21,6 +21,9 @@ app.get('/login',(req,res)=>{
 app.get('/register',(req,res)=>{ 
     res.render("register");
 })
+app.get('/updatePassword',(req,res)=>{ 
+    res.render("updatePassword");
+})
 app.get('/searchedProperty',(req,res)=>{
     res.render("search")
 })
